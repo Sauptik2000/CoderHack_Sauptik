@@ -3,7 +3,6 @@ package com.crio.coderhack.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Collections;
 import java.util.Set;
 import java.util.HashSet;
 
@@ -14,7 +13,7 @@ public class User {
     private String username;
     private int score;
     private Set<String> badges = new HashSet<>();
-    private Set<Integer> scoreList;
+    private int highestScore = 0;
 
     // Default constructor
     public User() {
@@ -26,7 +25,6 @@ public class User {
         this.username = username;
         this.score = 0; // Initial score is 0
         this.badges = new HashSet<>();
-        this.scoreList.add(0);// Initial badges are empty
     }
 
     // Getters and Setters
@@ -51,8 +49,16 @@ public class User {
     }
 
     public void setScore(int score) {
-        scoreList.add(score);
-        this.score = Collections.max(scoreList);
+        if(score>highestScore)  highestScore = score;
+        this.score = score;
+    }
+
+    public int getHighestScore() {
+        return highestScore;
+    }
+
+    public void setHighestScore(int highestScore) {
+        this.highestScore = highestScore;
     }
 
     public Set<String> getBadges() {

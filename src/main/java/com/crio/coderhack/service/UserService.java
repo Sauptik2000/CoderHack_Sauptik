@@ -16,7 +16,7 @@ public class UserService implements IUserService {
     private UserRepository userRepository;
 
     public List<User> getAllUsers() {
-        return userRepository.findAllByOrderByScoreDesc();
+        return userRepository.findAllByOrderByHighestScoreDesc();
     }
 
     public Optional<User> getUserById(String userId) {
@@ -33,7 +33,7 @@ public class UserService implements IUserService {
         Optional<User> userOpt = userRepository.findById(userId);
         if (userOpt.isPresent()) {
             User user = userOpt.get();
-            updateBadges(user);
+            //updateBadges(user);
             user.setScore(score);
             updateBadges(user);
             userRepository.save(user);
