@@ -8,20 +8,7 @@ Developed a RESTful API service using Spring Boot to manage the Leaderboard for 
 - Update user score
 - Delete user
 
-## Running the Project
-
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/yourusername/leaderboard-api.git
-    cd leaderboard-api
-    ```
-
-2. Build and run the project using Maven:
-    ```bash
-    mvn spring-boot:run
-    ```
-
-3. Access the API at `http://localhost:8082`.
+Access the API at `http://localhost:8082`.
 
 ## API Endpoints
 
